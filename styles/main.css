@@ -1,0 +1,20 @@
+* {
+  margin: 0;
+}
+
+.dadJokesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.dadJoke {
+  width: 250px;
+  padding: 20px;
+  border: 1px solid orchid;
+  margin: 5px;
+}
+
+.giveUP {
+  
+}
