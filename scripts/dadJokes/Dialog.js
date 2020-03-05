@@ -1,12 +1,21 @@
-export const InitializeGiveUpButtonEvents = () => {
-  const allCloseButtons = document.querySelectorAll('.closeButton')
-  allCloseButtons.forEach(button => button.addEventListener('click', event => event.target.parentNode.close()))
+import { RandomDadJokeGenerator } from "./RandomDadJokeGenerator.js"
 
-  const allGiveUpButtons = document.querySelectorAll('.giveUp')
+export const InitializeGiveUpButtonEvents = () => {
   
-  allGiveUpButtons.forEach(button => button.addEventListener('click', event => {
-    const dialogSiblingSelector = `${event.target.id}+dialog`
+  const giveUpButton = document.querySelector('.giveUp')
+  
+  giveUpButton.addEventListener('click', event => {
+    const dialogSiblingSelector = `#${event.target.id}+dialog`
     const theDialog = document.querySelector(dialogSiblingSelector)
     theDialog.showModal()
-  }))
+  })
+  
+  
+  const closeButton = document.querySelector('.closeButton')
+  closeButton.addEventListener('click', event => {
+    event.target.parentNode.close(RandomDadJokeGenerator())
+    InitializeGiveUpButtonEvents()
+
+  })
 }
+
